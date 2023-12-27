@@ -1,4 +1,3 @@
-<!-- Update this link with your own project logo -->
 # <img src="https://raw.githubusercontent.com/Cutwell/hands-on-python/main/logo-64x64.svg" style="width:64px;padding-right:20px;margin-bottom:-8px;"> Hands-on Python
  Learn Python fundamentals collaboratively, using inter-connected web devices
 

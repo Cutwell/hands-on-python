@@ -47,29 +47,22 @@ If using `poetry`:
 poetry install --with dev
 ```
 
-If using `pip`:
-
-```sh
-pip install -r requirements.txt
-pip install pytest autopep8
-```
-
 3. Create a working branch and start with your changes!
 
 ### Commit your update
 
-Commit the changes once you are happy with them. Don't forget to format your code according to the [pep8](https://pep8.org/) style and check that all unit tests pass, in order to speed up the review process :zap:.
+Commit the changes once you are happy with them. Don't forget to format your code (we prefer [Black](https://github.com/psf/black)!) and check that all unit tests pass, in order to speed up the review process :zap:.
 
 Run unit tests (from the project root) using:
 
 ```sh
-pytest -s .
+poetry run pytest -s .
 ```
 
-Auto-format your code to `pep8` standards (ran also from the project root) using:
+Run the Black autoformatter (from the project root) using:
 
 ```sh
-autopep8 --in-place --aggressive --recursive .
+poetry run black .
 ```
 
 ### Update necessary docs
