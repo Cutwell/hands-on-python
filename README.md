@@ -39,4 +39,3 @@ MIT
 
 - [Code Unlock](https://codepen.io/apokusin/pen/njaZmW) ([Artur Pokusin](https://codepen.io/apokusin))
 - [CSS Terminal](https://codepen.io/addyosmani/pen/avxmvN) ([Addy](https://codepen.io/addyo))
-- [Modal Examples](https://codepen.io/Coding_Journey/pen/jOOBvqR) ([Coding Journey](https://codepen.io/Coding_Journey))
