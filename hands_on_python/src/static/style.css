@@ -1,10 +1,5 @@
-#form {
-	margin-top: 20px;
-}
-
 * {
 	box-sizing: border-box;
-	text-rendering: optimizeLegibility;
 }
 
 body {
@@ -18,6 +13,20 @@ body {
 #userTable {
 	text-align: center;
 }
+
+.header .logo img {
+    border-radius: 5%;
+}
+
+.header .text {
+    line-height: 100px;
+    font-size: 30px;
+}
+
+.header .subheader {
+	display: none;
+}
+
 
 #roomcode {
 	width: 190px;
@@ -76,7 +85,7 @@ h3 {
 	border-color: #0091ff;
 }
 
-#roomcode .hint {
+#roomcode .show-connect-button {
 	display: none;
 }
 
@@ -138,11 +147,6 @@ h3 {
 	width: 32em;
 }
 
-#usertable {
-	height: 100px;
-	overflow: scroll;
-}
-
 #fakeTerminal {
 	height: 500px;
 	/* Set a fixed height for the terminal or adjust as needed */
@@ -167,275 +171,6 @@ h3 {
 	&::-webkit-scrollbar-track {
 		background-color: transparent;
 	}
-}
-
-/* Modals */
-.modal {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	display: none;
-	justify-content: center;
-	align-items: flex-start;
-	z-index: 1000;
-	overflow: auto;
-	background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal.modal-show {
-	animation: fadeIn 0.1s ease-in-out forwards;
-}
-
-.modal.modal-hide {
-	animation: fadeOut 0.1s ease-in-out 0.1s forwards;
-}
-
-.modal-content {
-	position: relative;
-	background-color: #fff;
-	margin: 2rem;
-	padding: 2rem;
-	border-radius: 0.25rem;
-	width: 90%;
-	max-height: 100%;
-	overflow: auto;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.modal-content h3 {
-	text-align: center;
-	margin-bottom: 2rem;
-}
-
-.modal.modal-show .modal-content {
-	animation: fadeInDown 0.3s ease-in-out forwards;
-}
-
-.modal.modal-hide .modal-content {
-	animation: fadeOutUp 0.2s ease-in-out forwards;
-}
-
-.modal-close {
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 1.75rem;
-	font-weight: bold;
-	padding: 0 0.75rem;
-	color: rgba(0, 0, 0, 0.2);
-	cursor: pointer;
-	user-select: none;
-}
-
-.modal-close:hover,
-.modal-close:focus {
-	color: rgba(0, 0, 0, 0.5);
-}
-
-/* Animations */
-@keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes fadeOut {
-	0% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 0;
-	}
-}
-
-@keyframes fadeInDown {
-	0% {
-		opacity: 0;
-		transform: translateY(-3rem);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes fadeOutUp {
-	0% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	100% {
-		opacity: 0;
-		transform: translateY(-3rem);
-	}
-}
-
-@keyframes zoomIn {
-	0% {
-		opacity: 0;
-		transform: scale(0.3);
-	}
-
-	100% {
-		opacity: 1;
-		transform: scale(1);
-	}
-}
-
-@keyframes zoomOut {
-	0% {
-		opacity: 1;
-		transform: scale(1);
-	}
-
-	100% {
-		opacity: 0;
-		transform: scale(0.3);
-	}
-}
-
-@keyframes fadeInLeft {
-	0% {
-		opacity: 0;
-		transform: translateX(100%);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes fadeOutRight {
-	0% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	100% {
-		opacity: 0;
-		transform: translateX(100%);
-	}
-}
-
-select {
-	appearance: none;
-	border: 1px solid rgba(27, 31, 35, .15);
-	border-radius: 6px;
-	box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-	box-sizing: border-box;
-	color: #fff;
-	cursor: pointer;
-	display: inline-block;
-	font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-	font-size: 14px;
-	font-weight: 600;
-	line-height: 20px;
-	padding: 6px 16px;
-	position: relative;
-	text-align: center;
-	text-decoration: none;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
-	vertical-align: middle;
-	white-space: nowrap;
-}
-
-.button {
-	appearance: none;
-	border: 1px solid rgba(27, 31, 35, .15);
-	border-radius: 6px;
-	box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
-	box-sizing: border-box;
-	color: #fff;
-	cursor: pointer;
-	display: inline-block;
-	font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-	font-size: 14px;
-	font-weight: 600;
-	line-height: 20px;
-	padding: 6px 16px;
-	position: relative;
-	text-align: center;
-	text-decoration: none;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
-	vertical-align: middle;
-	white-space: nowrap;
-}
-
-.button:focus:not(:focus-visible):not(.focus-visible) {
-	box-shadow: none;
-	outline: none;
-}
-
-.button:focus {
-	outline: none;
-}
-
-.green {
-	background-color: #2ea44f;
-}
-
-.green:hover {
-	background-color: #2c974b;
-}
-
-.green:focus {
-	box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
-
-}
-
-.green:active {
-	background-color: #298e46;
-	box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
-}
-
-.white {
-	background-color: #ccc;
-}
-
-.white:hover {
-	background-color: #aaa;
-}
-
-.white:focus {
-	box-shadow: rgba(173, 173, 173, 0.4) 0 0 0 3px;
-
-}
-
-.white:active {
-	background-color: #ccc;
-	box-shadow: rgba(90, 90, 90, 0.2) 0 1px 0 inset;
-}
-
-.blue {
-	background-color: #405cf5;
-}
-
-.blue:hover {
-	background-color: #0060df;
-}
-
-.blue:focus {
-	box-shadow: rgba(0, 62, 170, .4) 0 0 0 3px;
-
-}
-
-.blue:active {
-	background-color: #405cf5;
-	box-shadow: rgba(0, 37, 101, 0.2) 0 1px 0 inset;
 }
 
 table {
@@ -490,32 +225,14 @@ td:last-child {
 }
 
 
-#connect {
+.small-margin-top {
 	margin-top: 15px;
 }
 
-.tooltip {
-	cursor: pointer;
+.modal-wide {
+	max-width: 95%;
 }
 
-.tooltip .tooltiptext {
-	visibility: hidden;
-	width: 120px;
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	border-radius: 6px;
-	padding: 5px;
-	position: absolute;
-	z-index: 1;
-	bottom: 125%;
-	left: 50%;
-	margin-left: -60px;
-	opacity: 0;
-	transition: opacity 0.3s;
-}
-
-.tooltip:hover .tooltiptext {
-	visibility: visible;
-	opacity: 1;
+.subheader {
+	display: block;
 }

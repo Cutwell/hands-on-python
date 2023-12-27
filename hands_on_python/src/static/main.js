@@ -1,44 +1,3 @@
-const modalTriggerButtons = document.querySelectorAll("[data-modal-target]");
-const modals = document.querySelectorAll(".modal");
-const modalCloseButtons = document.querySelectorAll(".modal-close");
-
-modalTriggerButtons.forEach(elem => {
-	elem.addEventListener("click", event => toggleModal(event.currentTarget.getAttribute("data-modal-target")));
-});
-modalCloseButtons.forEach(elem => {
-	elem.addEventListener("click", event => toggleModal(event.currentTarget.closest(".modal").id));
-});
-modals.forEach(elem => {
-	elem.addEventListener("click", event => {
-		if (event.currentTarget === event.target) toggleModal(event.currentTarget.id);
-	});
-});
-
-// Close Modal with "Esc"...
-document.addEventListener("keydown", event => {
-	if (event.keyCode === 27 && document.querySelector(".modal.modal-show")) {
-		toggleModal(document.querySelector(".modal.modal-show").id);
-	}
-});
-
-function toggleModal(modalId) {
-	const modal = document.getElementById(modalId);
-
-	if (getComputedStyle(modal).display === "flex") { // alternatively: if(modal.classList.contains("modal-show"))
-		modal.classList.add("modal-hide");
-		setTimeout(() => {
-			document.body.style.overflow = "initial";
-			modal.classList.remove("modal-show", "modal-hide");
-			modal.style.display = "none";
-		}, 200);
-	}
-	else {
-		document.body.style.overflow = "hidden";
-		modal.style.display = "flex";
-		modal.classList.add("modal-show");
-	}
-}
-
 var clientID;
 var ws;
 const userTableBody = document.getElementById("userTableBody");
@@ -64,7 +23,7 @@ const inputCode = () => {
 const validateCode = () => {
 	const c = inputCode();
 	if (c.length === 4) {
-		document.querySelector(".hint").style.display = "block";
+		document.querySelector(".show-connect-button").style.display = "block";
 	} else {
 		form.classList.add("error");
 		form.classList.remove("success");
@@ -130,7 +89,9 @@ function updateUsersTable(usersData) {
 			// Create td elements for codeRow
 			let codeCell = document.createElement('td');
 			codeCell.textContent = userData.code;
-			codeCell.title = `User ID: ${userID}`
+			codeCell.title = `User ID: ${userID}`;
+			codeCell.setAttribute("data-bs-toggle", "tooltip");
+			codeCell.setAttribute("data-bs-placement", "top");
 
 			// Append codeCell to codeRow
 			codeRow.appendChild(codeCell);
@@ -138,7 +99,9 @@ function updateUsersTable(usersData) {
 			// Create td element for readyRow
 			let readyCell = document.createElement('td');
 			readyCell.textContent = userData.ready ? "✔" : "⏳";
-			readyCell.title = `User ID: ${userID}`
+			readyCell.title = `User ID: ${userID}`;
+			readyCell.setAttribute("data-bs-toggle", "tooltip");
+			readyCell.setAttribute("data-bs-placement", "top");
 
 			// Append readyCell to readyRow
 			readyRow.appendChild(readyCell);
@@ -185,7 +148,8 @@ function connectToWebSocket() {
 		document.getElementById("main").style.display = "block";
 
 		// show selected room
-		document.getElementById("roomcodedisplay").innerHTML = selectedRoom
+		document.getElementById("roomcode-number").innerHTML = selectedRoom;
+		document.getElementById("roomcode-subheader").style.display = "block";
 
 	} else {
 		alert("Please enter a valid room number (1 - 9999).");
@@ -224,3 +188,8 @@ function sendMessage(event) {
 	// Additional logic for sending messages if needed
 	event.preventDefault();
 }
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})

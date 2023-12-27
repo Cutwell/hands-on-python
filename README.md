@@ -1,4 +1,4 @@
-# <img src="https://github.com/Cutwell/hands-on-python/blob/main/logo-64x64.png" style="width:64px;padding-right:20px;margin-bottom:-8px;"> Hands-on Python
+# <img src="https://github.com/Cutwell/hands-on-python/blob/main/hands_on_python/src/static/logo-64x64.png" style="width:64px;padding-right:20px;margin-bottom:-8px;"> Hands-on Python
  Learn Python fundamentals collaboratively, using inter-connected web devices
 
 <!-- Find new badges at https://shields.io/badges -->
