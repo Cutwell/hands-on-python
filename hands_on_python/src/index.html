@@ -3,6 +3,7 @@
 
 <head>
     <title>Hands-on Python</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200">
     <link rel="stylesheet" href="/static/style.css"></link>
 </head>
@@ -33,13 +34,45 @@
             <form action="" onsubmit="sendMessage(event)" id="form">
                 <label for="messageText">Select a word:</label>
                 <select class="blue" id="messageText" autocomplete="off" onchange="updateCode()">
-                    <option value="">----</option>
-                    <option value="x">x</option>
+                <option value="">(Empty)</option>
+
+                <optgroup label="Variables">
+                    <option value="var1">var1</option>
+                    <option value="var2">var2</option>
+                    <option value="var3">var3</option>
+                </optgroup>
+                
+                <optgroup label="Keywords">
+                    <option value="print(var1)">print(var1)</option>
+                    <option value="print(var2)">print(var2)</option>
+                    <option value="print(var3)">print(var3)</option>
+                </optgroup>
+
+                <optgroup label="Operators">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="/">/</option>
+                    <option value="*">*</option>
                     <option value="=">=</option>
-                    <option value="'hi'">'hi'</option>
-                    <!-- Add more words as needed -->
+                </optgroup>
+
+                <optgroup label="Values">
+                    <option value="'Hello World!'">'Hello World!'</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </optgroup>
                 </select>
+
                 <button class="button blue" role="button" onclick="runCode()">Run Code</button>
+                <button class="button white" role="button" onclick="clearme()">Clear Me</button>
             </form>
         </div>
 

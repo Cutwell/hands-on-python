@@ -213,6 +213,13 @@ function runCode() {
 	ws.send(JSON.stringify(message));
 }
 
+function clearme() {
+	// set option to empty option
+	document.getElementById("messageText").selectedIndex = "0"
+	// update server
+	updateCode()
+}
+
 function sendMessage(event) {
 	// Additional logic for sending messages if needed
 	event.preventDefault();
