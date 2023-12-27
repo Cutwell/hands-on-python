@@ -4,13 +4,13 @@ version = "0.1.0"
 description = ""
 authors = ["Cutwell"]
 readme = "README.md"
+packages = [{include = "hands_on_python"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = "^0.106.0"
 uvicorn = {extras = ["standard"], version = "^0.25.0"}
 pydantic = "^2.5.3"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
@@ -19,3 +19,6 @@ black = "^23.12.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+hands_on_python = "hands_on_python.src.main:cli"

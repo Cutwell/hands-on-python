@@ -47,7 +47,13 @@ If using `poetry`:
 poetry install --with dev
 ```
 
-3. Create a working branch and start with your changes!
+3. Run in development mode:
+
+```sh
+poetry run uvicorn hands_on_python.src.main:app --reload
+```
+
+4. Create a working branch and start with your changes!
 
 ### Commit your update
 

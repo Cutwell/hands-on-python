@@ -1,8 +1,9 @@
+import json
+from pathlib import Path
+
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
-import json
 from starlette.staticfiles import StaticFiles
-from pathlib import Path
 
 app = FastAPI()
 
@@ -17,7 +18,7 @@ app.mount(
 @app.get("/")
 async def get():
     # TODO: for developing only - remove before prod
-    with open("index.html", "r") as f:
+    with open(f"{Path(__file__).parent.resolve()}/index.html", "r") as f:
         html = f.read()
     return HTMLResponse(content=html, status_code=200)
 
@@ -136,6 +137,12 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int, room_id: int)
 
         room_manager.remove_empty_room(room_id)
 
-if __name__ == "__main__":
+
+def cli():
     import uvicorn
+
     uvicorn.run(app, host="127.0.0.1", port=8000)
+
+
+if __name__ == "__main__":
+    cli()

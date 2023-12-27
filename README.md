@@ -17,8 +17,7 @@ poetry install
 1. Start the Python server:
 
 ```sh
-cd server
-poetry run uvicorn main:app --reload
+poetry run hands_on_python
 ```
 
 2. Open the webpage across multiple devices / tabs and join the same room.
@@ -27,8 +26,6 @@ poetry run uvicorn main:app --reload
 5. Press "Show Terminal" to view outputs. Each time you run some code, the finished line of code plus the output (either the resulting variables, or an error if something goes wrong) are logged to the terminal. Maybe use one device as a terminal screen whilst you compose Python snippets with your other screens?
 
 ## Contributing
-
-<!-- Remember to update the links in the `.github/CONTRIBUTING.md` file from `Cutwell/hands-on-python` to your own username and repository. -->
 
 For information on how to set up your dev environment and contribute, see [here](.github/CONTRIBUTING.md).
 
