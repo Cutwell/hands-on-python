@@ -23,7 +23,8 @@ poetry run uvicorn main:app --reload
 
 2. Open the webpage across multiple devices / tabs and join the same room.
 3. Compose a line of code. Empty lines are ignored - so not every line of code must use all connected devices!
-4. Press "Show Terminal" to open the terminal output (maybe use one device as a terminal screen whilst you compose Python snippets with your other screens?).
+4. Once ready, execute your code by pressing "Run Code". This executes as real Python code on the server!
+5. Press "Show Terminal" to view outputs. Each time you run some code, the finished line of code plus the output (either the resulting variables, or an error if something goes wrong) are logged to the terminal. Maybe use one device as a terminal screen whilst you compose Python snippets with your other screens?
 
 ## Contributing
 
