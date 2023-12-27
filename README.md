@@ -4,7 +4,11 @@
 <!-- Find new badges at https://shields.io/badges -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-https://github.com/Cutwell/hands-on-python/assets/22395357/53e7ff54-60b7-4129-8b6c-c5b255e42532
+
+
+https://github.com/Cutwell/hands-on-python/assets/22395357/d333fd0f-84f4-42cb-8951-b4252bb4af28
+
+
 
 ## Run locally
 
