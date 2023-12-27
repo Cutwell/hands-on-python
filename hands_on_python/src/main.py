@@ -140,8 +140,28 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int, room_id: int)
 
 def cli():
     import uvicorn
+    import socket
 
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    myip = (
+        (
+            [
+                ip
+                for ip in socket.gethostbyname_ex(socket.gethostname())[2]
+                if not ip.startswith("127.")
+            ]
+            or [
+                [
+                    (s.connect(("8.8.8.8", 53)), s.getsockname()[0], s.close())
+                    for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]
+                ][0][1]
+            ]
+        )
+        + ["no IP found"]
+    )[0]
+    print(
+        f"Starting on: http://0.0.0.0:8000/, http://127.0.0.1:8000/, http://{myip}:8000/"
+    )
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
 
 if __name__ == "__main__":

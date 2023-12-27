@@ -41,8 +41,8 @@ function toggleModal(modalId) {
 
 var clientID;
 var ws;
-var userTableBody = document.getElementById("userTableBody");
-var terminalDiv = document.getElementById("terminal");
+const userTableBody = document.getElementById("userTableBody");
+const terminalDiv = document.getElementById("terminal");
 
 // Form Parent
 const form = document.querySelector(".code_input");
@@ -52,7 +52,7 @@ const formInputs = form.querySelectorAll("input");
 
 // Returns the code which is inputted into each of the form inputs
 const inputCode = () => {
-	const code = [];
+	let code = [];
 	formInputs.forEach(function (input) {
 		code.push(input.value);
 	});
@@ -84,7 +84,7 @@ const clearInputs = () => {
 // Initiates code validation if the key pressed isn't backspace or delete
 formInputs.forEach(function (input, index, array) {
 	input.addEventListener("input", function (event) {
-		const inputLength = input.value.length;
+		let inputLength = input.value.length;
 
 		if (event.inputType !== "deleteContentBackward" && inputLength === 1) {
 			if (index < array.length - 1) {
@@ -108,20 +108,46 @@ formInputs.forEach(function (input) {
 });
 
 function processMessage(event) {
-	var usersData = JSON.parse(event.data).loc;
-	var terminalMessages = JSON.parse(event.data).terminal;
+	let usersData = JSON.parse(event.data).loc;
+	let terminalMessages = JSON.parse(event.data).terminal;
 
 	// Reconstruct the entire table from scratch
 	userTableBody.innerHTML = "";
-	for (var userID in usersData) {
-		if (usersData.hasOwnProperty(userID)) {
-			var userData = usersData[userID];
-			updateUsersTable(userID, userData);
-		}
-	}
+	updateUsersTable(usersData);
 
 	// Update the terminal
 	updateTerminal(terminalMessages);
+}
+
+function updateUsersTable(usersData) {
+	let codeRow = document.createElement('tr');
+	let readyRow = document.createElement('tr');
+
+	for (let userID in usersData) {
+		if (usersData.hasOwnProperty(userID)) {
+			let userData = usersData[userID];
+
+			// Create td elements for codeRow
+			let codeCell = document.createElement('td');
+			codeCell.textContent = userData.code;
+			codeCell.title = `User ID: ${userID}`
+
+			// Append codeCell to codeRow
+			codeRow.appendChild(codeCell);
+
+			// Create td element for readyRow
+			let readyCell = document.createElement('td');
+			readyCell.textContent = userData.ready ? "✔" : "⏳";
+			readyCell.title = `User ID: ${userID}`
+
+			// Append readyCell to readyRow
+			readyRow.appendChild(readyCell);
+		}
+	}
+
+	// Append codeRow and readyRow to userTableBody
+	userTableBody.appendChild(codeRow);
+	userTableBody.appendChild(readyRow);
 }
 
 function updateTerminal(messages) {
@@ -135,7 +161,7 @@ function updateTerminal(messages) {
 
 function addMessageToTerminal(message) {
 	// Add a new line to the terminal
-	var line = document.createElement("p");
+	let line = document.createElement("p");
 	line.className = "line1";
 	//line.innerHTML = "> " + message + '<span class="cursor1">_</span>';
 	line.innerHTML = "> " + message;
@@ -146,7 +172,7 @@ function addMessageToTerminal(message) {
 }
 
 function connectToWebSocket() {
-	var selectedRoom = inputCode();
+	let selectedRoom = inputCode();
 
 	if (selectedRoom >= 1 && selectedRoom <= 9999) {
 		clientID = Date.now();
@@ -166,27 +192,11 @@ function connectToWebSocket() {
 	}
 }
 
-function updateUsersTable(userID, userData) {
-	// Add a new row
-	var row = userTableBody.insertRow();
-	row.id = `userRow${userID}`;
-
-	// Add cells for ID, Code, and Ready
-	var cellID = row.insertCell(0);
-	var cellCode = row.insertCell(1);
-	var cellReady = row.insertCell(2);
-
-	// Set values
-	cellID.innerHTML = userID;
-	cellCode.innerHTML = userData.code;
-	cellReady.innerHTML = userData.ready ? "✔" : "⏳";
-}
-
 function updateCode() {
-	var select = document.getElementById("messageText");
-	var selectedWord = select.options[select.selectedIndex].value;
+	let select = document.getElementById("messageText");
+	let selectedWord = select.options[select.selectedIndex].value;
 
-	var message = {
+	let message = {
 		type: "code",
 		value: selectedWord
 	};
@@ -195,7 +205,7 @@ function updateCode() {
 }
 
 function runCode() {
-	var message = {
+	let message = {
 		type: "run",
 		value: true
 	};

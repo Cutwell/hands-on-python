@@ -50,7 +50,7 @@ poetry install --with dev
 3. Run in development mode:
 
 ```sh
-poetry run uvicorn hands_on_python.src.main:app --reload
+poetry run uvicorn hands_on_python.src.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 4. Create a working branch and start with your changes!

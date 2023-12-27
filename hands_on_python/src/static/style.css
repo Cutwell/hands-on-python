@@ -110,16 +110,15 @@ h3 {
 #fakeTerminal .fakeScreen {
 	background-color: #151515;
 	box-sizing: border-box;
-	width: 550px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 20px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-radius: 5px;
 }
 
 #fakeTerminal p {
 	position: relative;
-	left: 50%;
+	left: 20%;
 	margin-left: -8.5em;
 	text-align: left;
 	font-size: 1.25em;
@@ -136,7 +135,7 @@ h3 {
 
 #fakeTerminal .line1 {
 	color: #9CD9F0;
-	width: 17em;
+	width: 32em;
 }
 
 #usertable {
@@ -145,7 +144,7 @@ h3 {
 }
 
 #fakeTerminal {
-	height: 600px;
+	height: 500px;
 	/* Set a fixed height for the terminal or adjust as needed */
 	padding: 10px;
 	overflow: auto;
@@ -200,9 +199,14 @@ h3 {
 	padding: 2rem;
 	border-radius: 0.25rem;
 	width: 50%;
-	max-height: 75%;
+	max-height: 100%;
 	overflow: auto;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.modal-content h3 {
+	text-align: center;
+	margin-bottom: 2rem;
 }
 
 .modal.modal-show .modal-content {
@@ -437,7 +441,12 @@ select {
 table {
 	border-collapse: collapse;
 	margin-bottom: 20px;
-	margin:auto;
+	margin: auto;
+}
+
+td {
+	cursor: default;
+	font-family: 'Courier New', Courier, monospace;
 }
 
 th,
@@ -464,9 +473,14 @@ td {
 	color: #333;
 }
 
-/* Dividing lines between columns and header/rows separator */
+/* Remove dividing lines between columns and header/rows separator */
 th,
 td {
+	border-right: none;
+}
+
+/* Optional: If you want to keep the border between header and rows */
+th {
 	border-right: 1px solid #ddd;
 }
 
@@ -475,6 +489,33 @@ td:last-child {
 	border-right: none;
 }
 
+
 #connect {
 	margin-top: 15px;
+}
+
+.tooltip {
+	cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
 }
