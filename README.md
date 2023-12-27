@@ -14,10 +14,16 @@ poetry install
 
 ### Usage
 
+1. Start the Python server:
+
 ```sh
 cd server
 poetry run uvicorn main:app --reload
 ```
+
+2. Open the webpage across multiple devices / tabs and join the same room.
+3. Compose a line of code. Empty lines are ignored - so not every line of code must use all connected devices!
+4. Press "Show Terminal" to open the terminal output (maybe use one device as a terminal screen whilst you compose Python snippets with your other screens?).
 
 ## Contributing
 
