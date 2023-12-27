@@ -1,5 +1,6 @@
 var clientID;
 var ws;
+var selectedCode;
 const userTableBody = document.getElementById("userTableBody");
 const terminalDiv = document.getElementById("terminal");
 
@@ -88,11 +89,15 @@ function updateUsersTable(usersData) {
 
 			// Create td elements for codeRow
 			let codeCell = document.createElement('td');
-			codeCell.textContent = userData.code;
-			codeCell.title = `User ID: ${userID}`;
-			codeCell.setAttribute("data-bs-toggle", "tooltip");
-			codeCell.setAttribute("data-bs-placement", "top");
+			let codeBlock = document.createElement('code')
+			codeBlock.textContent = userData.code;
+			codeBlock.title = `User ID: ${userID}`;
+			codeBlock.setAttribute("data-bs-toggle", "tooltip");
+			codeBlock.setAttribute("data-bs-placement", "top");
 
+			// Append codeBlock to codeCell
+			codeCell.appendChild(codeBlock);
+			
 			// Append codeCell to codeRow
 			codeRow.appendChild(codeCell);
 
@@ -157,12 +162,9 @@ function connectToWebSocket() {
 }
 
 function updateCode() {
-	let select = document.getElementById("messageText");
-	let selectedWord = select.options[select.selectedIndex].value;
-
 	let message = {
 		type: "code",
-		value: selectedWord
+		value: selectedCode
 	};
 
 	ws.send(JSON.stringify(message));
@@ -178,10 +180,9 @@ function runCode() {
 }
 
 function clearme() {
-	// set option to empty option
-	document.getElementById("messageText").selectedIndex = "0"
+	selectedCode = "";
 	// update server
-	updateCode()
+	updateCode();
 }
 
 function sendMessage(event) {
@@ -193,3 +194,20 @@ var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
+
+function setCode(value) {
+	selectedCode = value;
+	updateCode();
+}
+
+function getInput() {
+	// Prompt the user for input
+	var userInput = prompt("Enter Python code / value:");
+
+	// Check if the user canceled the prompt (input is null)
+	if (userInput !== null) {
+		setCode(userInput);
+	} else {
+		clearme();
+	}
+}

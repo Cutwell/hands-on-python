@@ -15,12 +15,12 @@ body {
 }
 
 .header .logo img {
-    border-radius: 5%;
+	border-radius: 5%;
 }
 
 .header .text {
-    line-height: 100px;
-    font-size: 30px;
+	line-height: 100px;
+	font-size: 30px;
 }
 
 .header .subheader {
@@ -181,7 +181,6 @@ table {
 
 td {
 	cursor: default;
-	font-family: 'Courier New', Courier, monospace;
 }
 
 th,
@@ -235,4 +234,42 @@ td:last-child {
 
 .subheader {
 	display: block;
+}
+
+.dropdown-menu li {
+	position: relative;
+}
+
+.dropdown-menu .dropdown-submenu {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: -7px;
+}
+
+.dropdown-menu .dropdown-submenu-left {
+	right: 100%;
+	left: auto;
+}
+
+.dropdown-menu>li:hover>.dropdown-submenu {
+	display: block;
+}
+
+.dropdown-hover:hover>.dropdown-menu {
+	display: inline-block;
+}
+
+.dropdown-hover>.dropdown-toggle:active {
+	/*Without this, clicking will make it sticky*/
+	pointer-events: none;
+}
+
+.align-right {
+	float: right;
+}
+
+.dropdown-divider-text {
+	text-align: center;
+	font-weight: bold;
 }
