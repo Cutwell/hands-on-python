@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebSocket Chat</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200">
+    <link rel="stylesheet" href="/static/style.css"></link>
+</head>
+
+<body>
+    <div id="roomcode">
+        <h3>Enter a Room Code</h3>
+        <form class="code_input">
+            <input id="code1" autofocus="" maxlength="1" placeholder="#" />
+            <input id="code2" maxlength="1" placeholder="#" />
+            <input id="code3" maxlength="1" placeholder="#" />
+            <input id="code4" maxlength="1" placeholder="#" />
+        </form>
+        <div class="hint">
+            <button class="button green" role="button" onClick="connectToWebSocket()" id="connect">Connect</button>
+        </div>
+    </div>
+
+    <div id="main">
+        <h3>Room: <code id="roomcodedisplay"></code></h3>
+
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Ready</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+        </table>
+        <br>
+
+        <div>
+            <form action="" onsubmit="sendMessage(event)" id="form">
+                <label for="messageText">Select a word:</label>
+                <select class="blue" id="messageText" autocomplete="off" onchange="updateCode()">
+                    <option value="">----</option>
+                    <option value="x">x</option>
+                    <option value="=">=</option>
+                    <option value="'hi'">'hi'</option>
+                    <!-- Add more words as needed -->
+                </select>
+                <button class="button blue" role="button" onclick="runCode()">Run Code</button>
+            </form>
+        </div>
+
+        <div>
+            <br>
+            <button data-modal-target="modal1" class="button white" role="button">Show Terminal</button>
+        </div>
+
+        <div class="modal" id="modal1">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div id="fakeTerminal">
+                    <div class="fakeScreen" id="terminal">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+
+</html>

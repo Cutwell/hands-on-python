@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "hands-on-python"
+version = "0.1.0"
+description = ""
+authors = ["Cutwell"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.106.0"
+uvicorn = {extras = ["standard"], version = "^0.25.0"}
+pydantic = "^2.5.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
