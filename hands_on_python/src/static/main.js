@@ -200,14 +200,27 @@ function setCode(value) {
 	updateCode();
 }
 
-function getInput() {
+function getStringInput() {
 	// Prompt the user for input
-	var userInput = prompt("Enter Python code / value:");
+	var userInput = prompt("Enter custom string:");
 
 	// Check if the user canceled the prompt (input is null)
 	if (userInput !== null) {
+		userInput = '"' + userInput.replace(/"/g, '\\"') + '"';
 		setCode(userInput);
 	} else {
 		clearme();
 	}
+}
+
+function getNumberInput() {
+    // Prompt the user for input
+    var userInput = prompt("Enter a number:");
+
+    // Check if the user canceled the prompt or entered a non-numeric value
+    if (userInput !== null && !isNaN(userInput)) {
+        setCode(userInput);
+    } else {
+        clearme();
+    }
 }

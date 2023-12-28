@@ -58,7 +58,8 @@
         <div>
             <form action="" onsubmit="sendMessage(event)" id="form">
                 <div class="dropdown d-inline">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-code-square"></i> Select Code
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -66,74 +67,131 @@
                             <button class="dropdown-item" onclick="setCode('')">(None)</button>
                         </li>
                         <li>
-                            <button class="dropdown-item" onclick="getInput()"><i class="bi bi-input-cursor-text"></i> Custom</button>
-                        </li>
-                        <li>
                             <button class="dropdown-item dropdown-divider-text" disabled>Presets</button>
                         </li>
                         <li>
-                            <button class="dropdown-item" id="variablesSubMenu" data-bs-toggle="dropdown"><i class="bi bi-floppy"></i> Variables <i class="bi bi-arrow-right align-right"></i></button>
+                            <button class="dropdown-item" id="variablesSubMenu" data-bs-toggle="dropdown"><i
+                                    class="bi bi-floppy"></i> Variables <i
+                                    class="bi bi-arrow-right align-right"></i></button>
                             <ul class="dropdown-menu dropdown-submenu" aria-labelledby="variablesSubMenu">
-                                <li><button class="dropdown-item code-text" onclick="setCode('var1')"><code>var1</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('var2')"><code>var2</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('var3')"><code>var3</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('var1')"><code>var1</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('var2')"><code>var2</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('var3')"><code>var3</code></button></li>
                             </ul>
                         </li>
                         <li>
-                            <button class="dropdown-item" id="snippetsSubMenu" data-bs-toggle="dropdown"><i class="bi bi-code-slash"></i> Snippets <i class="bi bi-arrow-right align-right"></i></button>
+                            <button class="dropdown-item" id="snippetsSubMenu" data-bs-toggle="dropdown"><i
+                                    class="bi bi-code-slash"></i> Snippets <i
+                                    class="bi bi-arrow-right align-right"></i></button>
                             <ul class="dropdown-menu dropdown-submenu" aria-labelledby="snippetsSubMenu">
-                                <li><button class="dropdown-item code-text" onclick="setCode('print(var1)')"><code>print(var1)</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('print(var2)')"><code>print(var2)</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('print(var3)')"><code>print(var3)</code></button></li>
+                                <li>
+                                    <button class="dropdown-item" id="snippetsPrintSubMenu" data-bs-toggle="dropdown"><code>print(...)</code> <i
+                                            class="bi bi-arrow-right align-right"></i></button>
+                                    <ul class="dropdown-menu dropdown-submenu" aria-labelledby="snippetsPrintSubMenu">
+                                        <li><button class="dropdown-item code-text"
+                                                onclick="setCode('print(var1)')"><code>print(var1)</code></button></li>
+                                        <li><button class="dropdown-item code-text"
+                                                onclick="setCode('print(var2)')"><code>print(var2)</code></button></li>
+                                        <li><button class="dropdown-item code-text"
+                                                onclick="setCode('print(var3)')"><code>print(var3)</code></button></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li>
-                            <button class="dropdown-item" id="symbolsSubMenu" data-bs-toggle="dropdown"><i class="bi bi-calculator"></i> Symbols <i class="bi bi-arrow-right align-right"></i></button>
+                            <button class="dropdown-item" id="symbolsSubMenu" data-bs-toggle="dropdown"><i
+                                    class="bi bi-calculator"></i> Symbols <i
+                                    class="bi bi-arrow-right align-right"></i></button>
                             <ul class="dropdown-menu dropdown-submenu" aria-labelledby="symbolsSubMenu">
-                                <li><button class="dropdown-item code-text" onclick="setCode('+')"><code>+</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('-')"><code>-</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('/')"><code>/</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('*')"><code>*</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('=')"><code>=</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode(':')"><code>:</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('[')"><code>[</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode(']')"><code>]</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('(')"><code>(</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode(')')"><code>)</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('!')"><code>!</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode(',')"><code>,</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('.')"><code>.</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('+')"><code>+</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('-')"><code>-</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('/')"><code>/</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('*')"><code>*</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('=')"><code>=</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode(':')"><code>:</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('[')"><code>[</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode(']')"><code>]</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('(')"><code>(</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode(')')"><code>)</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('!')"><code>!</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode(',')"><code>,</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('.')"><code>.</code></button></li>
                             </ul>
                         </li>
                         <li>
-                            <button class="dropdown-item" id="logicSubMenu" data-bs-toggle="dropdown"><i class="bi bi-code"></i> Logic <i class="bi bi-arrow-right align-right"></i></button>
+                            <button class="dropdown-item" id="logicSubMenu" data-bs-toggle="dropdown"><i
+                                    class="bi bi-code"></i> Logic <i class="bi bi-arrow-right align-right"></i></button>
                             <ul class="dropdown-menu dropdown-submenu" aria-labelledby="logicSubMenu">
-                                <li><button class="dropdown-item code-text" onclick="setCode(' and ')"><code>and</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode(' or ')"><code>or</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('if ')"><code>if</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('elif ')"><code>elif</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('else:')"><code>else</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode(' and ')"><code>and</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode(' or ')"><code>or</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('if ')"><code>if</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('elif ')"><code>elif</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('else:')"><code>else</code></button></li>
                             </ul>
                         </li>
                         <li>
-                            <button class="dropdown-item" id="numbersSubMenu" data-bs-toggle="dropdown"><i class="bi bi-123"></i> Numbers <i class="bi bi-arrow-right align-right"></i></button>
+                            <button class="dropdown-item" id="numbersSubMenu" data-bs-toggle="dropdown"><i
+                                    class="bi bi-123"></i> Numbers <i
+                                    class="bi bi-arrow-right align-right"></i></button>
                             <ul class="dropdown-menu dropdown-submenu" aria-labelledby="numbersSubMenu">
-                                <li><button class="dropdown-item code-text" onclick="setCode('0')"><code>0</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('1')"><code>1</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('2')"><code>2</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('3')"><code>3</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('4')"><code>4</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('5')"><code>5</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('6')"><code>6</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('7')"><code>7</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('8')"><code>8</code></button></li>
-                                <li><button class="dropdown-item code-text" onclick="setCode('9')"><code>9</code></button></li>
+                                <li>
+                                    <button class="dropdown-item" onclick="getNumberInput()"><i
+                                            class="bi bi-input-cursor"></i> Custom Number</button>
+                                </li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('0')"><code>0</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('1')"><code>1</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('2')"><code>2</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('3')"><code>3</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('4')"><code>4</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('5')"><code>5</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('6')"><code>6</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('7')"><code>7</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('8')"><code>8</code></button></li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('9')"><code>9</code></button></li>
                             </ul>
                         </li>
                         <li>
-                            <button class="dropdown-item" id="stringsSubMenu" data-bs-toggle="dropdown"><i class="bi bi-type"></i> Strings <i class="bi bi-arrow-right align-right"></i></button>
+                            <button class="dropdown-item" id="stringsSubMenu" data-bs-toggle="dropdown"><i
+                                    class="bi bi-type"></i> Strings <i
+                                    class="bi bi-arrow-right align-right"></i></button>
                             <ul class="dropdown-menu dropdown-submenu" aria-labelledby="stringsSubMenu">
-                                <li><button class="dropdown-item code-text" onclick="setCode('\'Hello World!\'')"><code>'Hello World!'</code></button></li>
+                                <li>
+                                    <button class="dropdown-item" onclick="getStringInput()"><i
+                                            class="bi bi-input-cursor-text"></i> Custom String</button>
+                                </li>
+                                <li><button class="dropdown-item code-text"
+                                        onclick="setCode('\'Hello World!\'')"><code>'Hello World!'</code></button></li>
                             </ul>
                         </li>
                     </ul>
