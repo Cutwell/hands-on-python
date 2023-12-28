@@ -79,9 +79,10 @@
                             id="dropdownMenuButton"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
+                            title="Select Code"
                         >
                             <i aria-hidden="true" class="bi bi-code-square"></i>
-                            Select Code
+                            <span id="dropdownMenuButtonText">Select Code</span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li>
@@ -355,12 +356,14 @@
             <!-- Button trigger modal -->
             <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-secondary position-relative"
                 data-bs-toggle="modal"
                 data-bs-target="#terminalModal"
+                onclick="hideTerminalNotificationDot()"
             >
                 <i aria-hidden="true" class="bi bi-terminal"></i>
                 Show Terminal Output
+                <span class="notification-dot" id="terminal-notification-dot"></span>
             </button>
         </div>
         <div

@@ -1,6 +1,7 @@
-var clientID;
+const clientID = Date.now();;
 var ws;
 var selectedCode;
+var terminalNotification = false;
 const userTableBody = document.getElementById("userTableBody");
 const terminalDiv = document.getElementById("terminal");
 
@@ -91,24 +92,28 @@ function updateUsersTable(usersData) {
 			let codeCell = document.createElement('td');
 			let codeBlock = document.createElement('code')
 			codeBlock.textContent = userData.code;
-			codeBlock.title = `User ID: ${userID}`;
 			codeBlock.setAttribute("data-bs-toggle", "tooltip");
 			codeBlock.setAttribute("data-bs-placement", "top");
-
-			// Append codeBlock to codeCell
-			codeCell.appendChild(codeBlock);
-			
-			// Append codeCell to codeRow
-			codeRow.appendChild(codeCell);
 
 			// Create td element for readyRow
 			let readyCell = document.createElement('td');
 			readyCell.textContent = userData.ready ? "✔" : "⏳";
-			readyCell.title = `User ID: ${userID}`;
 			readyCell.setAttribute("data-bs-toggle", "tooltip");
 			readyCell.setAttribute("data-bs-placement", "top");
+			
+			// Customise if this code is the user's own input
+			if (userID == clientID) {
+				codeBlock.classList.add('green-code')
+				codeBlock.title = `Your code!`;
+				readyCell.title = `You!`;
+			} else {
+				codeBlock.classList.add('black-code')
+				codeBlock.title = `User ${userID}'s code`;
+				readyCell.title = `User ${userID}`;
+			}
 
-			// Append readyCell to readyRow
+			codeCell.appendChild(codeBlock);
+			codeRow.appendChild(codeCell);
 			readyRow.appendChild(readyCell);
 		}
 	}
@@ -120,11 +125,18 @@ function updateUsersTable(usersData) {
 
 function updateTerminal(messages) {
 	if (messages.length > 0) {
+		// add terminal notification
+		document.getElementById("terminal-notification-dot").style.display = "block";
+		
 		// Add each message to the terminal
 		messages.forEach(function (message) {
 			addMessageToTerminal(message);
 		});
 	}
+}
+
+function hideTerminalNotificationDot() {
+	document.getElementById("terminal-notification-dot").style.display = "none";
 }
 
 function addMessageToTerminal(message) {
@@ -143,7 +155,6 @@ function connectToWebSocket() {
 	let selectedRoom = inputCode();
 
 	if (selectedRoom >= 1 && selectedRoom <= 9999) {
-		clientID = Date.now();
 		ws = new WebSocket(`ws://localhost:8000/ws/${clientID}/${selectedRoom}`);
 
 		ws.onmessage = processMessage;
@@ -197,6 +208,7 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 function setCode(value) {
 	selectedCode = value;
+	document.getElementById("dropdownMenuButtonText").innerHTML = `Selected code: <code class="white-code">${value}</code>`
 	updateCode();
 }
 

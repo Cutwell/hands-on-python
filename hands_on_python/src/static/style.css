@@ -139,7 +139,7 @@ h3 {
 
 #fakeTerminal span {
 	color: #fff;
-	font-weight: bold;
+	font-weight: 700;
 }
 
 #fakeTerminal .line1 {
@@ -271,5 +271,32 @@ td:last-child {
 
 .dropdown-divider-text {
 	text-align: center;
-	font-weight: bold;
+	font-weight: 700;
+}
+
+.green-code {
+	color: #198754;
+}
+
+.black-code {
+	color: #151515;
+}
+
+.white-code {
+	color: #fff
+}
+
+i {
+	margin-right: 5px;
+}
+
+.notification-dot {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	border-radius: 50%;
+	display: none;
 }
