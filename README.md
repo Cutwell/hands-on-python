@@ -1,12 +1,12 @@
 # <img src="https://github.com/Cutwell/hands-on-python/blob/main/hands_on_python/src/static/logo-64x64.png" style="width:64px;padding-right:20px;margin-bottom:-8px;"> Hands-on Python
- Learn Python fundamentals collaboratively, using inter-connected web devices
+ Learn Python fundamentals, using inter-connected web devices as building blocks
 
 <!-- Find new badges at https://shields.io/badges -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 
-https://github.com/Cutwell/hands-on-python/assets/22395357/d333fd0f-84f4-42cb-8951-b4252bb4af28
+https://github.com/Cutwell/hands-on-python/assets/22395357/5c8a28e2-3c59-4b9b-bc5f-945ad5d628c5
 
 
 
