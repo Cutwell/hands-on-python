@@ -43,3 +43,4 @@ MIT
 
 - [Code Unlock](https://codepen.io/apokusin/pen/njaZmW) ([Artur Pokusin](https://codepen.io/apokusin))
 - [CSS Terminal](https://codepen.io/addyosmani/pen/avxmvN) ([Addy](https://codepen.io/addyo))
+- [Python Syntax Highlighting](https://codepen.io/maxwell_alexius/pen/oeVxod) ([Maxwell Alexius](https://codepen.io/maxwell_alexius))

@@ -14,14 +14,12 @@ app.mount(
     name="static",
 )
 
-
 @app.get("/")
 async def get():
     # TODO: for developing only - remove before prod
     with open(f"{Path(__file__).parent.resolve()}/index.html", "r") as f:
         html = f.read()
     return HTMLResponse(content=html, status_code=200)
-
 
 class Room:
     def __init__(self):
